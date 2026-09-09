@@ -1,0 +1,9 @@
+# Dépendances additionnelles à ajouter dans go.mod pour la découverte auto (go get) :
+github.com/vmware/govmomi v0.37.0
+libvirt.org/go/libvirt v1.10004.0
+
+# Ces deux lignes sont fournies à part car l'outil de push ne peut pas exécuter `go mod tidy`.
+# Après pull, lancer dans backend/ :
+#   go get github.com/vmware/govmomi@v0.37.0
+#   go get libvirt.org/go/libvirt@v1.10004.0
+#   go mod tidy

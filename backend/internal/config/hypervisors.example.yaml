@@ -1,0 +1,22 @@
+# Exemple de configuration des hyperviseurs pour la découverte automatique.
+# Copier en hypervisors.yaml (ignoré par git) et compléter avec les vraies infos.
+
+esxi:
+  - name: vcenter-prod
+    url: "https://vcenter.example.local/sdk"
+    username: "readonly-svc@vsphere.local"
+    password: "CHANGEME"
+    insecure: true
+
+ahv:
+  - name: prism-cluster-1
+    url: "https://prism.example.local:9440"
+    username: "readonly"
+    password: "CHANGEME"
+    insecure: true
+
+kvm:
+  - name: kvm-host01
+    uri: "qemu+ssh://root@kvm-host01/system"
+  - name: kvm-host02
+    uri: "qemu+ssh://root@kvm-host02/system"
