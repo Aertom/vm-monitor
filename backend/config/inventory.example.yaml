@@ -1,0 +1,25 @@
+# Inventaire statique des VMs (mode initial, avant découverte auto par hyperviseur)
+ssh:
+  user: monitor
+  private_key_path: /etc/vmmonitor/ssh/id_ed25519
+  port: 22
+  timeout_seconds: 5
+
+vms:
+  - ip: 10.0.10.11
+    hypervisor: esxi
+  - ip: 10.0.10.12
+    hypervisor: esxi
+  - ip: 10.0.10.21
+    hypervisor: ahv
+  - ip: 10.0.10.22
+    hypervisor: ahv
+  - ip: 10.0.10.31
+    hypervisor: kvm
+  - ip: 10.0.10.32
+    hypervisor: kvm
+  - ip: 10.0.10.41
+    hypervisor: kvm
+
+# Note: le hostname et la famille (sm/cm/ws/oa) sont déduits automatiquement
+# à la collecte (hostname réel récupéré en SSH). Pas besoin de les préciser ici.
