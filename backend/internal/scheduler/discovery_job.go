@@ -21,21 +21,3 @@ func (s *Scheduler) RunDiscovery(ctx context.Context, cfg discovery.HypervisorsC
 	}
 }
 
-// StartWithDiscovery démarre la boucle périodique : découverte hyperviseurs puis collecte SSH.
-func (s *Scheduler) StartWithDiscovery(interval time.Duration, hvCfg discovery.HypervisorsConfig) {
-	ticker := time.NewTicker(interval)
-
-	runOnce := func() {
-		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
-		defer cancel()
-		s.RunDiscovery(ctx, hvCfg)
-		s.collectAllOnce(ctx)
-	}
-
-	runOnce()
-	go func() {
-		for range ticker.C {
-			runOnce()
-		}
-	}()
-}
