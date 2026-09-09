@@ -1,0 +1,225 @@
+:root {
+  --color-bg: #0f1216;
+  --color-panel: #1a1f26;
+  --color-border: #2b323c;
+  --color-text: #e6e9ef;
+  --color-muted: #9aa4b2;
+  --color-free: #3fbf68;
+  --color-in-use: #f2a33d;
+  --color-error: #e05252;
+  --color-accent: #4f8cff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.state-panel {
+  padding: 32px;
+  text-align: center;
+  border-radius: 8px;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.toolbar label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.toolbar select {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.result-count {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.group-table-wrapper {
+  overflow-x: auto;
+}
+
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.group-table th,
+.group-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.9rem;
+}
+
+.group-table thead th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.row-in-use {
+  background: rgba(242, 163, 61, 0.08);
+}
+
+.group-id {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.vm-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vm-hostname {
+  font-weight: 600;
+}
+
+.vm-ip,
+.vm-hypervisor {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.vm-app-version {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.vm-app-version .version {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.vm-missing {
+  color: var(--color-muted);
+}
+
+.vm-error {
+  color: var(--color-error);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  cursor: help;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.status-badge.free {
+  background: rgba(63, 191, 104, 0.15);
+  color: var(--color-free);
+}
+
+.status-badge.in-use {
+  background: rgba(242, 163, 61, 0.15);
+  color: var(--color-in-use);
+}
+
+.checkout-form {
+  display: flex;
+  gap: 6px;
+}
+
+.checkout-form input {
+  width: 110px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-checkout {
+  background: var(--color-accent);
+  color: white;
+}
+
+.btn-checkin {
+  background: transparent;
+  border: 1px solid var(--color-in-use);
+  color: var(--color-in-use);
+}
+
+@media (max-width: 720px) {
+  .group-table thead {
+    display: none;
+  }
+
+  .group-table,
+  .group-table tbody,
+  .group-table tr,
+  .group-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .group-table tr {
+    margin-bottom: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .group-table td {
+    border-bottom: none;
+    padding: 8px 12px;
+  }
+}
