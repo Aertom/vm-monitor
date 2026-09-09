@@ -7,10 +7,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/yourorg/vmmonitor/internal/api"
-	"github.com/yourorg/vmmonitor/internal/config"
-	"github.com/yourorg/vmmonitor/internal/scheduler"
-	"github.com/yourorg/vmmonitor/internal/store"
+	"github.com/Aertom/vm-monitor/backend/internal/api"
+	"github.com/Aertom/vm-monitor/backend/internal/config"
+	"github.com/Aertom/vm-monitor/backend/internal/scheduler"
+	"github.com/Aertom/vm-monitor/backend/internal/store"
 )
 
 func main() {

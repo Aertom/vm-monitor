@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/yourorg/vmmonitor/internal/discovery"
+	"github.com/Aertom/vm-monitor/backend/internal/discovery"
 )
 
 // RunDiscovery interroge tous les hyperviseurs configurés et met à jour l'inventaire
