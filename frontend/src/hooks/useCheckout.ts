@@ -1,10 +1,15 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-export function useCheckout(groupId: string) {
+interface CheckoutParams {
+  groupId: string;
+  user: string;
+}
+
+export function useCheckout() {
   const queryClient = useQueryClient();
 
-  const checkout = useMutation({
-    mutationFn: async (user: string) => {
+  const checkoutMutation = useMutation({
+    mutationFn: async ({ groupId, user }: CheckoutParams) => {
       const res = await fetch(`/api/groups/${groupId}/checkout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -17,8 +22,8 @@ export function useCheckout(groupId: string) {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['groups'] }),
   });
 
-  const checkin = useMutation({
-    mutationFn: async () => {
+  const checkinMutation = useMutation({
+    mutationFn: async (groupId: string) => {
       const res = await fetch(`/api/groups/${groupId}/checkin`, {
         method: 'POST',
       });
@@ -27,5 +32,12 @@ export function useCheckout(groupId: string) {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['groups'] }),
   });
 
-  return { checkout: checkout.mutate, checkin: checkin.mutate };
+  const checkout = (groupId: string, user: string) => checkoutMutation.mutate({ groupId, user });
+  const checkin = (groupId: string) => checkinMutation.mutate(groupId);
+
+  return {
+    checkout,
+    checkin,
+    isPending: checkoutMutation.isPending || checkinMutation.isPending,
+  };
 }

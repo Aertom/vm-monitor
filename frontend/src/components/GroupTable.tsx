@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { Group } from '../types/group';
+import type { Group } from '../types/vm';
 import { FamilyBadge } from './FamilyBadge';
 import { useCheckout } from '../hooks/useCheckout';
 

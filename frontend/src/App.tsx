@@ -10,9 +10,7 @@ export default function App() {
   return (
     <div style={{ padding: 24, fontFamily: 'sans-serif' }}>
       <h1>VM Monitor</h1>
-      {groups?.map((g) => (
-        <GroupTable key={g.id} group={g} />
-      ))}
+      <GroupTable groups={groups ?? []} isLoading={isLoading} />
     </div>
   );
 }
